@@ -36,9 +36,9 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 #pragma mark 函数
-
-/** 判断是否有缓存子类需要重写 */
-- (void)judgeListViewCache;
+#pragma mark 需要重写
+- (void)judgeListViewCache;      /** 判断是否有缓存子类需要重写 */
+- (void)requestDataSourceSuccess;/** 请求成功 */
 
 /** 刷新头部 */
 - (void)refreshHeader;
@@ -48,9 +48,6 @@
 
 /** 结束刷新 */
 - (void)endRefreshLoading;
-
-/** 请求成功 */
-- (void)requestDataSourceSuccess;
 
 /** 请求失败 */
 - (void)requestDataSourceFail;

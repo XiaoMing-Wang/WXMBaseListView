@@ -58,24 +58,17 @@
 
 /** 请求成功 */
 - (void)requestDataSourceSuccess {
-    if (self.refreType == WXMRefreshHeader || self.refreType == WXMRefreshFree)  {
-        self.lastPage = self.currentPage = 1;
-    } else {
-        self.lastPage = self.currentPage;
-    }
+    self.lastPage = self.currentPage;
     self.refreType = WXMRefreshFree;
     self.isRequest = NO;
 }
 
 /** 请求失败 */
 - (void)requestDataSourceFail {
-    if (self.refreType == WXMRefreshHeader || self.refreType == WXMRefreshFree)  {
-        self.lastPage = self.currentPage = 1;
-    } else {
-        self.currentPage = self.lastPage;
-    }
+    self.currentPage = self.lastPage;
     self.refreType = WXMRefreshFree;
     self.isRequest = NO;
+    [self setDefaultInterface];
 }
 /** 结束刷新 */
 - (void)endRefreshLoading {
